@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Vano Baby — 10 ANS DU GANG</title>
+
+  <style>
+    :root {
+      --gold: #D4A017;
+      --gold-bright: #F5C842;
+      --gold-dim: #7A5C0E;
+      --fire: #E8490F;
+      --black: #070707;
+      --black-2: #0F0F0F;
+      --black-3: #161616;
+      --off-white: #F0EBE0;
+      --muted: #6B6560;
+      --font-display: 'Anton', sans-serif;
+      --font-body: 'Anton', sans-serif;
+      --font-italic: 'Anton', serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #161616;
+      box-sizing: border-box;
+      font-family: 'Anton';
+    }
+
+    #contact {
+      background: var(--black);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 60px;
+    }
+
+    .contact-left p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(240, 235, 224, 0.55);
+      margin-bottom: 40px;
+    }
+
+    .contact-social-row {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--black-3);
+      border: 1px solid rgba(240, 235, 224, 0.06);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .social-item:hover {
+      border-color: var(--gold);
+      transform: translateX(6px);
+    }
+
+    .social-icon {
+      font-size: 20px;
+      width: 28px;
+      text-align: center;
+    }
+
+    .social-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--off-white);
+    }
+
+    .social-desc {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-input,
+    .form-textarea {
+      background: var(--black-3);
+      border: 1px solid rgba(240, 235, 224, 0.08);
+      color: var(--off-white);
+      padding: 16px 20px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .btn-form {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--black);
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      border: none;
+      padding: 18px 40px;
+      cursor: none;
+      align-self: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+
+    .btn-form:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 160, 23, 0.4);
+    }
+
+    @media (max-width: 900px) {
+      body {
+        cursor: auto;
+      }
+
+      .cursor,
+      .cursor-ring {
+        display: none;
+      }
+
+      nav {
+        padding: 20px 24px;
+      }
+
+      nav.scrolled {
+        padding: 14px 24px;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      #accueil {
+        padding: 0 24px 60px;
+      }
+
+      .hero-number {
+        display: none;
+      }
+
+      section {
+        padding: 80px 24px;
+      }
+
+      .artiste-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .concert-hero-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .tickets-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .stats-bar {
+        flex-wrap: wrap;
+        gap: 32px;
+      }
+
+      .stat-item+.stat-item {
+        border-left: none;
+      }
+
+      .countdown {
+        gap: 20px;
+      }
+
+      .float-player {
+        max-width: 240px;
+        bottom: 90px;
+        left: 16px;
+      }
+
+      .float-cta {
+        right: 16px;
+        bottom: 20px;
+      }
+
+      .float-cta a {
+        padding: 14px 20px;
+        font-size: 10px;
+      }
+
+      footer {
+        padding: 40px 24px;
+      }
+
+      .cta-mid-section {
+        padding: 40px 24px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tickets-secure {
+        gap: 24px;
+      }
+
+      .presse-quote {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body >
+
+   <nav class="p-[10px] flex justify-between items-center z-50 fixed w-full bg-[#0A0A0A]/90 backdrop-blur-sm">
+    <div class="flex items-center gap-8">
+      <div class="brand bg-black w-[100px] h-[40px]"><img class=" object-contain" src="/imgs/logo.webp" alt="">
+      </div>
+      <div style="height: 60px;  border: 1px solid rgb(201, 160, 62)"></div>
+      <p class="text-[#C9A03E]" style="font-family: 'Anton';">Sam 04 <br> Avril 2026</p>
+    </div>
+
+    <div class="w-[400px]">
+       <ul id="menu"
+    class="hidden absolute top-[70px] right-[20px] bg-[#0A0A0A] border border-[#C9A03E] flex-col space-y-4 z-50 shadow-2xl p-6 min-w-[200px] rounded-lg">
+    <li><a class="text-[#F2F2F2] hover:text-[#C9A03E] text-center duration-300 block py-2" style="font-family: 'Anton';" href="/index.html">ACCUEIL</a></li>
+    <li><a class="text-[#F2F2F2] hover:text-[#C9A03E] text-center duration-300 block py-2" style="font-family: 'Anton';" href="artiste.html">ARTISTE</a></li>
+    <li><a class="text-[#F2F2F2] hover:text-[#C9A03E] text-center duration-300 block py-2" style="font-family: 'Anton';" href="concert.html">LE CONCERT</a></li>
+    <li><a class="text-[#F2F2F2] hover:text-[#C9A03E] text-center duration-300 block py-2" style="font-family: 'Anton';" href="billeterie.html">BILLETS</a></li>
+    <li><a class="text-[#F2F2F2] hover:text-[#C9A03E] text-center duration-300 block py-2" style="font-family: 'Anton';" href="contact.html">CONTACT</a></li>
+</ul>
+    </div>
+
+    <div class="pr-11">
+      <i id="menu-btn" class="text-white fas fa-bars " style="font-size: 2.3em;"></i>
+    </div>
+  </nav>
+  <section id="contact" class="px-11 py-11">
+    <div class="section-tag reveal text-white text-4xl">Contact</div>
+    <h2 class="section-title reveal reveal-delay-1 text-white text-4xl">REJOINS<br>LA LÉGENDE</h2>
+
+    <div class="contact-grid">
+      <div class="contact-left reveal reveal-delay-1">
+        <p>Presse, sponsors, partenariats — on vous attend.<br>Une seule opportunité d'être associé à l'événement de
+          l'année au Bénin.</p>
+        <div class="contact-social-row">
+          <a href="https://www.facebook.com/profile.php?id=100044293546221&locale=fr_FR" class="social-item">
+            <span class="social-icon"><i class="text-white
+              fa-brands fa-facebook-f"></i></span>
+            <div>
+              <div class="social-name">Facebook</div>
+              <div class="social-desc">Suis l'aventure en temps réel</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/vano229officiel/" class="social-item">
+            <span class="social-icon"><i class=" text-white fa-brands fa-instagram"></i></span>
+            <div>
+              <div class="social-name">Instagram</div>
+              <div class="social-desc">Backstage, teasers et exclusivités</div>
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/search?q=vano%20baby229officiel&t=1774365761319" class="social-item">
+            <span class="social-icon"><i class="text-white fa-brands fa-tiktok"></i></span>
+            <div>
+              <div class="social-name">TikTok</div>
+              <div class="social-desc">Le Gang en vidéo</div>
+            </div>
+          </a>
+         
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <form class="contact-form" onsubmit="handleForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label text-white">Nom</label>
+              <input class="form-input" type="text" placeholder="Votre nom" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label text-white">Prénom</label>
+              <input class="form-input" type="text" placeholder="Votre prénom" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label text-white">Email</label>
+            <input class="form-input" type="email" placeholder="votre@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label text-white">Objet</label>
+            <input class="form-input" type="text" placeholder="Presse / Partenariat / Sponsor…" />
+          </div>
+          <div class="form-group">
+            <label class="form-label text-white">Message</label>
+            <textarea class="form-textarea" placeholder="Votre message…" required></textarea>
+          </div>
+          <button type="submit" class="btn-form">→ Envoyer ma demande</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+    integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+
+    const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+
+
+
+        // 1. Ouvrir/Fermer avec le bouton et changer l'icône
+        btn.addEventListener("click", (event) => {
+            menu.classList.toggle("hidden");
+            menu.classList.toggle("flex");
+
+            // Alterne entre l'icône "burger" et l'icône "croix"
+            if (menu.classList.contains("hidden")) {
+                btn.classList.remove("fa-xmark");
+                btn.classList.add("fa-bars");
+            } else {
+                btn.classList.remove("fa-bars");
+                btn.classList.add("fa-xmark");
+            }
+
+            // Empêche le clic sur le bouton de déclencher la fermeture globale (voir point 2)
+            event.stopPropagation();
+        });
+
+        // 2. Fermer le menu si on clique n'importe où ailleurs sur la page
+        document.addEventListener("click", (event) => {
+            // Si le menu est ouvert ET qu'on clique en dehors du menu
+            if (!menu.classList.contains("hidden") && !menu.contains(event.target)) {
+                menu.classList.add("hidden");
+                menu.classList.remove("flex");
+                // On remet l'icône burger
+                btn.classList.remove("fa-xmark");
+                btn.classList.add("fa-bars");
+            }
+        });
+
+        // 3. Fermer le menu quand on clique sur un lien (ACCUEIL, ARTISTE, etc.)
+        const menuLinks = menu.querySelectorAll("a");
+        menuLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.add("hidden");
+                menu.classList.remove("flex");
+                btn.classList.remove("fa-xmark");
+                btn.classList.add("fa-bars");
+            });
+        });
+
+        
+    gsap.from("*", {
+      y: 10,                // Glisse de 40px vers le haut
+      opacity: 0,
+      duration: 0.8,
+      stagger:0.1,
+      // Petit décalage entre chaque logo
+      ease: "power2.out",
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Vano Baby — 10 ANS DU GANG</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4A017;
+            --gold-bright: #F5C842;
+            --gold-dim: #7A5C0E;
+            --fire: #E8490F;
+            --black: #070707;
+            --black-2: #0F0F0F;
+            --black-3: #161616;
+            --off-white: #F0EBE0;
+            --muted: #6B6560;
+            --font-display: 'Anton', sans-serif;
+            --font-body: 'Anton', sans-serif;
+            --font-italic: 'Anton', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--off-white);
+            font-family: 'Anton';
+            overflow-x: hidden;
+            
+        }
+
+       
+       
+        #artiste {
+            background: var(--black-2);
+        }
+
+        .artiste-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            margin-top: 80px;
+        }
+
+        .artiste-intro-text {
+            font-size: clamp(22px, 3vw, 38px);
+            font-family: var(--font-italic);
+            font-style: italic;
+            line-height: 1.3;
+            color: var(--off-white);
+            margin-bottom: 40px;
+        }
+
+        .artiste-block {
+            margin-bottom: 48px;
+        }
+
+        .artiste-block-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .artiste-block-sub {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .artiste-block p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: rgba(240, 235, 224, 0.65);
+        }
+
+        /* Stats */
+        .stats-bar {
+            background: var(--black-3);
+            border: 1px solid rgba(212, 160, 23, 0.15);
+            padding: 48px 60px;
+            display: flex;
+            gap: 0;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(212, 160, 23, 0.05), transparent 50%, rgba(232, 73, 15, 0.05));
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item+.stat-item {
+            border-left: 1px solid rgba(212, 160, 23, 0.15);
+        }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: clamp(44px, 5vw, 68px);
+            color: var(--gold-bright);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* Discographie frise */
+        .disco-section {
+            margin-top: 80px;
+        }
+
+        .disco-title-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .disco-title {
+            font-family: var(--font-display);
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: var(--off-white);
+            text-transform: uppercase;
+        }
+
+        .disco-sub {
+            font-size: 13px;
+            color: var(--muted);
+            font-style: italic;
+            font-family: var(--font-italic);
+        }
+
+        .disco-track {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(240, 235, 224, 0.06);
+            transition: background 0.2s, padding 0.2s;
+            position: relative;
+            cursor: none;
+        }
+
+        .disco-track:hover {
+            background: rgba(212, 160, 23, 0.04);
+            padding-left: 16px;
+        }
+
+        .disco-track::after {
+            content: '▶';
+            position: absolute;
+            right: 0;
+            color: var(--gold);
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .disco-track:hover::after {
+            opacity: 1;
+        }
+
+        .disco-track-num {
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: var(--gold-dim);
+            width: 40px;
+            flex-shrink: 0;
+            letter-spacing: 2px;
+        }
+
+        .disco-track-name {
+            flex: 1;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--off-white);
+        }
+
+        .disco-track-year {
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+
+        /* Presse quote */
+        .presse-quote {
+            margin-top: 80px;
+            padding: 48px;
+            border-left: 3px solid var(--gold);
+            background: var(--black-3);
+            position: relative;
+        }
+
+        .presse-quote::before {
+            content: '"';
+            font-family: var(--font-italic);
+            font-size: 160px;
+            line-height: 1;
+            color: rgba(212, 160, 23, 0.1);
+            position: absolute;
+            top: -20px;
+            left: 30px;
+        }
+
+        .presse-quote-text {
+            font-family: var(--font-italic);
+            font-style: italic;
+            font-size: clamp(20px, 2.5vw, 30px);
+            line-height: 1.4;
+            color: var(--off-white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .presse-source {
+            margin-top: 16px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 900px) {
+            body {
+                cursor: auto;
+            }
+
+            .cursor,
+            .cursor-ring {
+                display: none;
+            }
+
+            section {
+                padding: 80px 24px;
+            }
+
+            .artiste-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+
+            footer {
+                padding: 40px 24px;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+            .tickets-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                padding: 32px 24px;
+            }
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <nav
+        class="hero-element p-[10px] flex justify-between items-center z-50 fixed w-full bg-[#0A0A0A]/5 backdrop-blur-sm">
+        <div class="flex items-center gap-8">
+            <div class="brand bg-black w-[100px] h-[40px]"><img class=" object-contain" src="/imgs/logo.webp" alt="">
+            </div>
+            <div style="height: 60px;  border: 1px solid rgb(201, 160, 62)"></div>
+            <p class="text-[#C9A03E]" style="font-family: 'Anton';">Sam 04 <br> Avril 2026</p>
+        </div>
+
+        <div>
+            <ul id="menu"
+                class="hidden absolute w-[130px] top-[70px] right-[15px] bg-[#0A0A0A] opacity-[0.5] px-7 rounded-lg border border-[#C9A03E] flex-col space-y-4 z-50 shadow-xl">
+                <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                        style="font-family: 'Anton';" href="/index.html">ACCUEIL</a></li>
+                <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                        style="font-family: 'Anton';" href="artiste.html">ARTISTE</a></li>
+                <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                        style="font-family: 'Anton';" href="concert.html">LE CONCERT</a></li>
+                <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                        style="font-family: 'Anton';" href="billeterie.html">BILLETS</a></li>
+                <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                        style="font-family: 'Anton';" href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <div class="pr-11">
+            <i id="menu-btn" class="fas fa-bars text-[#C9A03E]" style="font-size: 2.3em;"></i>
+        </div>
+    </nav>
+    <section id="artiste" class="px-8">
+        <div class="section-tag reveal">L'Artiste</div>
+        <h2 class="section-title reveal reveal-delay-1">VANO<br>BABY</h2>
+
+        <div class="artiste-grid">
+            <div>
+                <p class="artiste-intro-text reveal">
+                    Avant la scène, il y avait un rêve.
+                </p>
+                <p class="artiste-intro-text reveal reveal-delay-1"
+                    style="font-size:clamp(15px,1.6vw,18px); font-style:normal; font-family:var(--font-body); color:rgba(240,235,224,0.6); line-height:1.8;">
+                    Né à Cotonou, Vano Baby n'avait qu'une certitude : sa voix allait traverser les frontières.
+                </p>
+                <div class="artiste-block reveal reveal-delay-2">
+                    <div class="artiste-block-title">L'enfant de Cotonou</div>
+                    <div class="artiste-block-sub">Les origines</div>
+                    <p>Dans les rues animées de Cotonou, un jeune garçon écoutait, observait, absorbait. La musique
+                        n'était pas un choix — c'était une évidence.</p>
+                </div>
+                <div class="artiste-block reveal reveal-delay-3">
+                    <div class="artiste-block-title">De Adigoue Gboun Gboun à aujourd'hui</div>
+                    <div class="artiste-block-sub">L'Ascension</div>
+                    <p>Un titre. Une explosion. Le Bénin entier retient son souffle.<br>Depuis, il n'a jamais arrêté de
+                        monter.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="disco-section reveal">
+                    <div class="disco-title-row">
+                        <div class="disco-title">Discographie</div>
+                        <div class="disco-sub">Chaque morceau, une époque.</div>
+                    </div>
+                    <div class="disco-track">
+                        <span class="disco-track-num">01</span>
+                        <span class="disco-track-name"><a href="https://youtu.be/W52vlJJoxyc?si=Uu7QIKXOVlh-BTSf">Adigoue Gboun Gboun</a></span>
+                        <span class="disco-track-year">2014</span>
+                    </div>
+                    
+                    </div>
+                    <div class="disco-track">
+                        <span class="disco-track-num">02</span>
+                        <span class="disco-track-name"><a href="https://youtu.be/KXmn-LWazy8?si=yAGl7ghGQ4XZELFs">Diyo</a></span>
+                        <span class="disco-track-year">2022</span>
+                    </div>
+                    <div class="disco-track">
+                        <span class="disco-track-num">03</span>
+                        <span class="disco-track-name"><a href="https://youtu.be/hiVRXZP0HwU?si=UPlg0Q4LHp1MLXWH">Mahu Si</a></span>
+                        <span class="disco-track-year">2023</span>
+                    </div>
+                    <div class="disco-track">
+                        <span class="disco-track-num">03</span>
+                        <span class="disco-track-name"><a href="https://youtu.be/FIO_LoEDW8g?si=2mHoQWhwmPcLG2ad">C'est toi</a></span>
+                        <span class="disco-track-year">2024</span>
+                    </div>
+                    <div class="disco-track">
+                        <span class="disco-track-num">04</span>
+                        <span class="disco-track-name"><a href="https://youtu.be/QbstAWxoU24?si=W_KCqqtCIkA2VVzt">Bô ébi</a></span>
+                        <span class="disco-track-year">2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-3">
+            <h2 class="text-6xl">Vano s'exprime !</h2><br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/anFA8KKDkcc?si=vkrYRFBusfWiz0YQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+        <div class="stats-bar reveal">
+            <div class="stat-item">
+                <span class="stat-num">10</span>
+                <div class="stat-label">Ans de carrière</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">+50</span>
+                <div class="stat-label">Titres</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">800K</span>
+                <div class="stat-label">Fans</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">+15</span>
+                <div class="stat-label">Pays</div>
+            </div>
+        </div>
+
+
+        <div class="w-1/2 ml-auto overflow-x-auto no-scrollbar snap-x snap-mandatory">
+
+            <div class="flex flex-row flex-nowrap gap-6 md:gap-9 p-4 w-max">
+
+                <div class="snap-center flex-shrink-0 bg-white shadow-lg"
+                    style="width: 85vw; max-width: 400px; height: 400px;">
+                    <img src="/imgs/images.webp" alt="" class="w-full h-full object-cover">
+                </div>
+
+                <div class="snap-center flex-shrink-0 bg-white shadow-lg"
+                    style="width: 85vw; max-width: 400px; height: 400px;">
+                    <img  src="/imgs/images (5).webp" alt="" class="w-full h-full object-cover">
+                </div>
+
+                <div class="snap-center flex-shrink-0 bg-white shadow-lg"
+                    style="width: 85vw; max-width: 400px; height: 400px;">
+                    <img src="/imgs/images (2).webp" alt="" class="w-full h-full object-cover">
+                </div>
+
+                <div class="snap-center flex-shrink-0 bg-white shadow-lg"
+                    style="width: 85vw; max-width: 400px; height: 400px;">
+                    <img src="/imgs/images (3).webp" alt="" class="w-full h-full object-cover">
+                </div>
+
+                <div class="snap-center flex-shrink-0 bg-white shadow-lg"
+                    style="width: 85vw; max-width: 400px; height: 400px;">
+                    <img src="/imgs/images (4).webp" alt="" class="w-full h-full object-cover">
+                </div>
+
+                <div class="w-10"></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="presse-quote reveal">
+            <p class="presse-quote-text">
+                "Vano Baby est la voix d'une génération."
+            </p>
+
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+
+    <section class="flex flex-col items-end gap-4 p-6 w-1/2 ml-auto">
+    <span class="text-sm font-medium uppercase tracking-widest text-gray-500">Suivez-nous</span>
+    
+    <div class="flex gap-6 text-2xl">
+        <a href="https://www.facebook.com/profile.php?id=100044293546221&locale=fr_FR" class="text-gray-400 hover:text-blue-600 transition-colors duration-300" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/vano229officiel/" class="text-gray-400 hover:text-pink-500 transition-colors duration-300" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    
+        </a>
+        <a href="https://www.tiktok.com/search?q=vano%20baby229officiel&t=1774365761319" class="text-gray-400 hover:text-[]-700 transition-colors duration-300" aria-label="LinkedIn">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+    </div>
+</section>
+
+ <footer class="bg-[#0A0A0A] p-y-3 m-0">
+        <center>
+            <p class=" text-[#C9A03E] text-[3em] font-semibold"
+                style="font-family:'Anton'; border-top:1px solid #CC0000;">Vano Baby</p>
+        </center> <br>
+        <center>
+            <p class="text-white" style="font-family:'Anton';">10 ans du gang. Une nuit pour l'éternité.</p>
+        </center> <br>
+        <center>
+            <p class="text-[#C9A03E]" style="font-family:'Anton';">Xwè wè tɔn. Zǎn ɖokpo ɔ kpɔ.</p>
+        </center> <br>
+        <center>
+            <p class="text-white" style="font-family:'Anton';">&copy; 2026 Vano Baby Officiel. Tous droits réservés</p>
+        </center>
+    </footer>
+
+    
+    <script>
+        // Cursor
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursorRing');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX; my = e.clientY;
+            cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
+        });
+        function animateRing() {
+            rx += (mx - rx) * 0.12;
+            ry += (my - ry) * 0.12;
+            cursorRing.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+        document.querySelectorAll('a, button, .faq-q, .disco-track').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.style.transform += ' scale(2.5)');
+            el.addEventListener('mouseleave', () => cursor.style.transform = cursor.style.transform.replace(' scale(2.5)', ''));
+        });
+
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+
+
+
+        // 1. Ouvrir/Fermer avec le bouton et changer l'icône
+        btn.addEventListener("click", (event) => {
+            menu.classList.toggle("hidden");
+            menu.classList.toggle("flex");
+
+            // Alterne entre l'icône "burger" et l'icône "croix"
+            if (menu.classList.contains("hidden")) {
+                btn.classList.remove("fa-xmark");
+                btn.classList.add("fa-bars");
+            } else {
+                btn.classList.remove("fa-bars");
+                btn.classList.add("fa-xmark");
+            }
+
+            // Empêche le clic sur le bouton de déclencher la fermeture globale (voir point 2)
+            event.stopPropagation();
+        });
+
+        // 2. Fermer le menu si on clique n'importe où ailleurs sur la page
+        document.addEventListener("click", (event) => {
+            // Si le menu est ouvert ET qu'on clique en dehors du menu
+            if (!menu.classList.contains("hidden") && !menu.contains(event.target)) {
+                menu.classList.add("hidden");
+                menu.classList.remove("flex");
+                // On remet l'icône burger
+                btn.classList.remove("fa-xmark");
+                btn.classList.add("fa-bars");
+            }
+        });
+
+        // 3. Fermer le menu quand on clique sur un lien (ACCUEIL, ARTISTE, etc.)
+        const menuLinks = menu.querySelectorAll("a");
+        menuLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.add("hidden");
+                menu.classList.remove("flex");
+                btn.classList.remove("fa-xmark");
+                btn.classList.add("fa-bars");
+            });
+        });
+
+
+    </script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+    integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    gsap.from("*", {
+      y: 10,                // Glisse de 40px vers le haut
+      opacity: 0,
+      duration: 0.8,
+      stagger:0,
+      // Petit décalage entre chaque logo
+      ease: "power2.out",
+    });
+  </script>
+</body>
+
+</html>
