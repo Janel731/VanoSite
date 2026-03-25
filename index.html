@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Vano Baby — 10 ANS DU GANG</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        .cursor {
+            width: 15px;
+            height: 15px;
+            background: #C9A03E;
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, width 0.2s, height 0.2s;
+            /* mix-blend-mode: difference; */
+        }
+
+        .cursor-ring {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(212, 160, 23, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s cubic-bezier(.17, .67, .83, .67);
+        }
+
+        .vano p {
+            text-shadow: 2px 5px 5px rgb(7, 7, 7);
+
+        }
+
+        .vano img {
+            transform: translateY(-256px);
+        }
+
+        @media (max-width: 475px) {
+            .vano img {
+                transform: translateY(28px);
+            }
+        }
+
+        .embl {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1.3);
+
+        }
+
+        .single span {
+            background: url(Vanophoto3.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <header class="bg-[#F2F2F2] relative">
+        <center><img class="hero-element embl absolute object-contain opacity-[0.5]" src="mKFFL01.svg" alt=""></center>
+
+        <nav
+            class="hero-element p-[10px] flex justify-between items-center z-50 fixed w-full bg-[#0A0A0A]/5 backdrop-blur-sm">
+            <div class="flex items-center gap-8">
+                <div class="brand bg-black w-[100px] h-[40px]"><img class=" object-contain" src="imgs/logo.webp" alt="">
+                </div>
+                <div style="height: 60px;  border: 1px solid rgb(201, 160, 62)"></div>
+                <p class="text-[#0A0A0A]" style="font-family: 'Anton';">Sam 04 <br> Avril 2026</p>
+            </div>
+
+            <div>
+                <ul id="menu"
+                    class="hidden absolute top-[70px] right-[15px] bg-[#0A0A0A] opacity-[0.5] p-6 rounded-lg border border-[#C9A03E] flex-col space-y-4 z-50 shadow-xl">
+                    <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                            style="font-family: 'Anton';" href="index.html">ACCUEIL</a></li>
+                    <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                            style="font-family: 'Anton';" href="assets/artiste.html">ARTISTE</a></li>
+                    <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                            style="font-family: 'Anton';" href="assets/concert.html">LE CONCERT</a></li>
+                    <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                            style="font-family: 'Anton';" href="assets/billeterie.html">BILLETS</a></li>
+                    <li><a class=" text-[#F2F2F2] hover:border-b-2 hover:border-[#CC0000] duration-300"
+                            style="font-family: 'Anton';" href="assets/contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="pr-11">
+                <i id="menu-btn" class="fas fa-bars text-[#C9A03E]" style="font-size: 2.3em;"></i>
+            </div>
+        </nav>
+
+        <center>
+            <div class="hero-element vano w-full h-[55vh] pt-32 position-relative lg:pt-0">
+                <p class="text-[4em] sm:text-[7em] lg:text-[10em] text-[#CC0000] rotate-[-15deg]"
+                    style="font-family:'Rubik Glitch';">vano baby</p>
+                <img src="imgs/Vanophoto1.png" alt="">
+            </div>
+        </center>
+
+        <div class="hero-element w-[200px] p-[15px]">
+            <p style="font-size: 2.3em; font-family:'Anton'; text-shadow: 2px 5px 5px rgb(201, 160, 62);">Le gang est
+                solide !
+            </p>
+        </div>
+
+        <center><button class="hero-element cta bg-[#CC0000] p-[10px] rounded-[24px] text-[#F2F2F2] relative z-50"
+                style="font-family:'Anton'; font-size: 1.3em; box-shadow:2px 5px 5px rgb(201, 160, 62); ;"><a
+                    href="assets/billeterie.html">Je prends mon
+                    pass</a></button></center>
+
+        <div class="hero-element fixed top-[18%] right-[3%] flex flex-col gap-y-10 z-10">
+            <div id="first-track" class="flex justify-center items-center gap-x-6">
+                <div class="single size-16 rounded-full bg-[#0A0A0A] flex justify-center items-center cursor-pointer"
+                    onclick="toggleAudio('audio1', this)">
+                    <span class="size-12 rounded-full text-[#C9A03E] flex justify-center items-center">
+                        <i class="fas fa-play"></i>
+                    </span>
+                    <audio id="audio1" src="/single/Bô Ébi.mp3" preload="auto"></audio>
+                </div>
+                <p class="text-lg font-semibold text-[#C9A03E]" style="font-family: 'Anton';">Bô ébi</p>
+            </div>
+
+            <div class="flex justify-center items-center gap-x-6">
+                <div class="single size-16 rounded-full bg-[#0A0A0A] flex justify-center items-center cursor-pointer"
+                    onclick="toggleAudio('audio2', this)">
+                    <span class="size-12 rounded-full text-[#C9A03E] flex justify-center items-center">
+                        <i class="fas fa-play"></i>
+                    </span>
+                    <audio id="audio2" src="/single/diyo.mp3" preload="auto"></audio>
+                </div>
+                <p class="text-lg font-semibold text-[#C9A03E]" style="font-family: 'Anton';">Diyo</p>
+            </div>
+
+            <div class="flex justify-center items-center gap-x-6">
+                <div class="single size-16 rounded-full bg-[#0A0A0A] flex justify-center items-center cursor-pointer"
+                    onclick="toggleAudio('audio3', this)">
+                    <span class="size-12 rounded-full text-[#C9A03E] flex justify-center items-center">
+                        <i class="fas fa-play"></i>
+                    </span>
+                    <audio id="audio3" src="/single/ENFANT DE DIEU.mp3" preload="auto"></audio>
+                </div>
+                <p class="text-lg font-semibold text-[#C9A03E]" style="font-family: 'Anton';">EDD</p>
+            </div>
+
+            <div class="flex justify-center items-center gap-x-6">
+                <div class="single size-16 rounded-full bg-[#0A0A0A] flex justify-center items-center cursor-pointer"
+                    onclick="toggleAudio('audio4', this)">
+                    <span class="size-12 rounded-full text-[#C9A03E] flex justify-center items-center">
+                        <i class="fas fa-play"></i>
+                    </span>
+                    <audio id="audio4" src="/single/Do BANDI Min.mp3" preload="auto"></audio>
+                </div>
+                <p class="text-lg font-semibold text-[#C9A03E]" style="font-family: 'Anton';">Do bandit min</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white w-[100%] h-[10vh] px-6 py-16">
+        <div class="logos-grid flex justify-around items-center">
+            <div class="sponsor-logo w-[180px] h-12 "><img class="w-[100%] h-[100%] object-cover"
+                    src="imgs/betclic.webp" alt="">
+            </div>
+            <div class="sponsor-logo w-[180px] h-12 "><img class="w-[100%] h-[100%] object-contain scale-150"
+                    src="imgs/Rondpoint.webp" alt=""></div>
+            <div class="sponsor-logo w-[180px] h-12 "><img class="w-[100%] h-[100%] object-contain scale-150"
+                    src="imgs/celtiis.webp" alt=""></div>
+            <div class="sponsor-logo w-[180px] h-12 "><img class="w-[100%] h-[100%] object-contain scale-150"
+                    src="imgs/cam.webp" alt="">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="event bg-fixed bg-no-repeat bg-cover w-full h-[90vh]"
+        style="background-image: url(imgs/10Ans.webp)">
+        <center>
+            <p class="Text-event text-[#CC0000] text-[10vh] font-bold mt-4" style="font-family: Anton;">L'évenement de
+                l'année</p>
+        </center>
+        <center>
+            <p class="para-event text-white text-lg mt-4" style="font-family: Anton;">Les 10ans de Règne</p>
+        </center>
+
+        <div class=" time flex flex-wrap justify-center gap-4 md:gap-8 mt-12 px-4">
+            <div class="size-20 md:size-32 bg-[#CC0000]/70 rounded-lg flex flex-col justify-center items-center">
+                <span id="days" class="text-2xl md:text-4xl text-white font-['Anton']">00</span>
+                <span class="text-[10px] text-white font-bold">JOURS</span>
+            </div>
+            <div class="size-20 md:size-32 bg-[#CC0000]/70 rounded-lg flex flex-col justify-center items-center">
+                <span id="hours" class="text-2xl md:text-4xl text-white font-['Anton']">00</span>
+                <span class="text-[10px] text-white font-bold">HEURES</span>
+            </div>
+            <div class="size-20 md:size-32 bg-[#CC0000]/70 rounded-lg flex flex-col justify-center items-center">
+                <span id="minutes" class="text-2xl md:text-4xl text-white font-['Anton']">00</span>
+                <span class="text-[10px] text-white font-bold">MIN</span>
+            </div>
+            <div class="size-20 md:size-32 bg-[#CC0000]/70 rounded-lg flex flex-col justify-center items-center">
+                <span id="seconds" class="text-2xl md:text-4xl text-white font-['Anton']">00</span>
+                <span class="text-[10px] text-white font-bold">SEC</span>
+            </div>
+        </div>
+
+        <center><button class="cta bg-[#CC0000] p-[10px] rounded-[24px] text-[#F2F2F2] mt-12"
+                style="font-family:'Anton'; font-size: 1.3em; box-shadow:2px 5px 5px rgb(201, 160, 62);"><a
+                    href="assets/billeterie.html">Je me dépêche</a></button></center>
+    </section>
+
+    <section class="section-master bg-[#0A0A0A] p-6">
+        <div class="flex flex-col md:flex-row justify-around items-center gap-12">
+            <div>
+                <h1 class="master text-white text-4xl lg:text-[6em]" style="font-family: 'Anton';">LE MAîTRE
+                    <br><br><span class="master text-[#C9A03E]">DE CEREMONIE</span></h1><br>
+
+                <p class="master text-white text-[4em]" style="font-family: 'Anton';">Qui est <span
+                        class="text-[#CC0000]">Vano
+                        Baby</span> ?</p>
+            </div>
+
+            <div class="image-master w-[400px] h-[400px] rotate-6 rounded-3xl">
+                <img class=" w-[100%] h-[100%] object-cover rounded-3xl"
+                    style="box-shadow:2px 5px 5px rgb(201, 160, 62);" src="imgs/Vanophoto3.webp" alt="">
+            </div>
+        </div>
+
+        <center><button class="cta bg-[#CC0000] p-[10px] rounded-[24px] text-[#F2F2F2] mt-12"
+                style="font-family:'Anton'; font-size: 1.3em; box-shadow:2px 5px 5px rgb(201, 160, 62);"><a
+                    href="assets/artiste.html">Découvrir
+                    l'histoire</a></button></center>
+    </section>
+
+    <footer class="bg-[#0A0A0A] p-y-3 m-0">
+        <center>
+            <p class=" text-[#C9A03E] text-[3em] font-semibold"
+                style="font-family:'Anton'; border-top:1px solid #CC0000;">Vano Baby</p>
+        </center> <br>
+        <center>
+            <p class="text-white" style="font-family:'Anton';">10 ans du gang. Une nuit pour l'éternité.</p>
+        </center> <br>
+        <center>
+            <p class="text-[#C9A03E] " style="font-family:'Anton';">Xwè wè tɔn. Zǎn ɖokpo ɔ kpɔ.</p>
+        </center> <br>
+        <center>
+            <p class="text-white" style="font-family:'Anton';">&copy; 2026 Vano Baby Officiel. Tous droits réservés</p>
+        </center>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="assets/JS/index.js"></script>
+
+</body>
+
+</html>
