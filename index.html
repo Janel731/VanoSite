@@ -14,12 +14,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Vano Baby — 10 ANS DU GANG</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            cursor: none;
-        }
+       html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Empêche le scroll horizontal */
+    position: relative;
+    cursor: none;
+}
 
         .cursor {
             width: 15px;
@@ -85,7 +87,7 @@
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <header class="bg-[#F2F2F2] relative">
+    <header class="bg-[#F2F2F2] relative overflow-hidden>
         <center><img class="hero-element embl absolute object-contain opacity-[0.5]" src="mKFFL01.svg" alt=""></center>
 
         <nav
@@ -120,7 +122,7 @@
 
         <center>
             <div class="hero-element vano w-full h-[55vh] pt-32 position-relative lg:pt-0">
-                <p class="text-[4em] sm:text-[7em] lg:text-[10em] text-[#CC0000] rotate-[-15deg]"
+                <p class="text-[3.5em] sm:text-[7em] lg:text-[10em] text-[#CC0000] rotate-[-15deg] whitespace-nowrap"
                     style="font-family:'Rubik Glitch';">vano baby</p>
                 <img src="imgs/Vanophoto1.png" alt="">
             </div>
