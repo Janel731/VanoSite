@@ -159,7 +159,7 @@
         // les Animations
 
 // On attend que le DOM soit prêt
-document.addEventListener("load", () => {
+window.addEventListener("load", () => {
 
   gsap.from(".hero-element", {
     duration: 1.6,
