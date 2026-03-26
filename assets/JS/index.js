@@ -159,7 +159,7 @@
         // les Animations
 
 // On attend que le DOM soit prêt
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("load", () => {
 
   gsap.from(".hero-element", {
     duration: 1.6,
@@ -182,9 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-});
-
-gsap.from(".sponsor-logo", {
+      gsap.from(".sponsor-logo", {
   y: 40,                // Glisse de 40px vers le haut
   opacity: 0,
   duration: 0.8,
@@ -282,3 +280,7 @@ gsap.from("footer p", {
     toggleActions: "play none none none" 
   }
 })
+
+
+});
+
