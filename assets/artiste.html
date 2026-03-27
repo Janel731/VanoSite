@@ -197,20 +197,6 @@
             padding-left: 16px;
         }
 
-        .disco-track::after {
-            content: '▶';
-            position: absolute;
-            right: 0;
-            color: var(--gold);
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .disco-track:hover::after {
-            opacity: 1;
-        }
-
         .disco-track-num {
             font-family: var(--font-display);
             font-size: 14px;
@@ -325,9 +311,7 @@
 </head>
 
 <body>
-    <!-- CURSOR -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+    
     <nav
         class="hero-element p-[10px] flex justify-between items-center z-50 fixed w-full bg-[#0A0A0A]/5 backdrop-blur-sm">
         <div class="flex items-center gap-8">
